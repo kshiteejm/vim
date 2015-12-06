@@ -10,7 +10,7 @@ set tags=tags;/
 
 " line numbers
 set number
-:highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+":highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
 " eclim
 set nocompatible
@@ -24,23 +24,24 @@ filetype plugin indent on
 "hi PmenuThumb cterm=reverse gui=reverse
 
 " http://stackoverflow.com/questions/1551231/highlight-variable-under-cursor-in-vim-like-in-netbeans
-:autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+":autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 
 " highlight unwanted(trailing) whitespace
 " + have this highlighting not appear whilst you are typing in insert mode
 " + have the highlighting of whitespace apply when you open new buffers
 " http://vim.wikia.com/wiki/Highlight_unwanted_spaces
-:highlight ExtraWhitespace ctermbg=red guibg=red
-:autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
+":highlight ExtraWhitespace ctermbg=red guibg=red
+":autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+"autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+"autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+"autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+"autocmd BufWinLeave * call clearmatches()
 
 " Solarized
 syntax on
-set background=dark
 let g:solarized_termcolors = 256
+set t_Co=256
+set background=dark
 colorscheme solarized
 
 " leader key
@@ -102,9 +103,9 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " Format scala code
-let g:scala_sort_across_groups=1
-au BufEnter *.scala setl formatprg=java\ -jar\ /Users/stefan/exec/scalariform.jar\ -f\ -q\ --preferenceFile=/Users/stefan/myfo/scala/scalariform-formatter.properties\ --stdin\ --stdout
-nmap <leader>m :SortScalaImports<CR>gggqG<C-o><C-o><leader><w>
+"let g:scala_sort_across_groups=1
+"au BufEnter *.scala setl formatprg=java\ -jar\ /Users/stefan/exec/scalariform.jar\ -f\ -q\ --preferenceFile=/Users/stefan/myfo/scala/scalariform-formatter.properties\ --stdin\ --stdout
+"nmap <leader>m :SortScalaImports<CR>gggqG<C-o><C-o><leader><w>
 
 " Tagbar (http://blog.stwrt.ca/2012/10/31/vim-ctags)
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
@@ -115,9 +116,9 @@ map <leader>r :NERDTreeFind<cr>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " Buffers - explore/next/previous: leader-u, Alt-F12, leader-p.
-nnoremap <silent> <leader>u :BufExplorer<CR>
-nnoremap <silent> <M-F12> :bn<CR>
-nnoremap <silent> <leader>p :bp<CR>
+"nnoremap <silent> <leader>u :BufExplorer<CR>
+"nnoremap <silent> <M-F12> :bn<CR>
+"nnoremap <silent> <leader>p :bp<CR>
 
 " Replace word under cursor globally
 nnoremap <Leader>a :%s/\<<C-r><C-w>\>/
@@ -162,30 +163,30 @@ set wildignore+=*/target/* "sbt target directory"
 let g:CommandTMaxCachedDirectories=0
 
 " Rainbow parantheses
-let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['black',       'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
-let g:rbpt_max = 16
-let g:rbpt_loadcmd_toggle = 0
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+"let g:rbpt_colorpairs = [
+"    \ ['brown',       'RoyalBlue3'],
+"    \ ['Darkblue',    'SeaGreen3'],
+"    \ ['darkgray',    'DarkOrchid3'],
+"    \ ['darkgreen',   'firebrick3'],
+"    \ ['darkcyan',    'RoyalBlue3'],
+"    \ ['darkred',     'SeaGreen3'],
+"    \ ['darkmagenta', 'DarkOrchid3'],
+"    \ ['brown',       'firebrick3'],
+"    \ ['gray',        'RoyalBlue3'],
+"    \ ['black',       'SeaGreen3'],
+"    \ ['darkmagenta', 'DarkOrchid3'],
+"    \ ['Darkblue',    'firebrick3'],
+"    \ ['darkgreen',   'RoyalBlue3'],
+"    \ ['darkcyan',    'SeaGreen3'],
+"    \ ['darkred',     'DarkOrchid3'],
+"    \ ['red',         'firebrick3'],
+"    \ ]
+"let g:rbpt_max = 16
+"let g:rbpt_loadcmd_toggle = 0
+"au VimEnter * RainbowParenthesesToggle
+"au Syntax * RainbowParenthesesLoadRound
+"au Syntax * RainbowParenthesesLoadSquare
+"au Syntax * RainbowParenthesesLoadBraces
 
 function! Comment()
   let ext = tolower(expand('%:e'))
@@ -193,7 +194,7 @@ function! Comment()
     silent s/^/\#/
   elseif ext == 'js' || ext == 'scala'
     silent s:^:\/\/:g
-  elseif ext == 'vim'
+  elseif ext == 'vim' || ext == 'vimrc'
     silent s:^:\":g
   endif
 endfunction
@@ -241,7 +242,7 @@ autocmd! FileType qf nnoremap <buffer> <leader><Enter> <C-w><Enter><C-w>L
 set scrolloff=8
 
 " ZoomWin
-nmap <leader>o <c-w>o
+"nmap <leader>o <c-w>o
 
 " Highlight TODO and FIXME
 " http://stackoverflow.com/questions/11709965/vim-highlight-the-word-todo-for-every-filetype
