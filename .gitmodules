@@ -38,3 +38,6 @@
 	path = bundle/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
 	ignore = dirty
+[submodule "bundle/rainbow_paretheses"]
+	path = bundle/rainbow_paretheses
+	url = https://github.com/kien/rainbow_parentheses.vim.git
