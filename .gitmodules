@@ -4,7 +4,7 @@
 	ignore = dirty
 [submodule "bundle/command-t"]
 	path = bundle/command-t
-	url = git://git.wincent.com/command-t.git
+	url = https://github.com/wincent/command-t.git
 	ignore = dirty
 [submodule "bundle/supertab"]
 	path = bundle/supertab
