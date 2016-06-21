@@ -38,11 +38,15 @@ filetype plugin indent on
 "autocmd BufWinLeave * call clearmatches()
 
 " Solarized
-syntax on
-"let base16colorspace=256
-"let g:solarized_termcolors = 256
-"set t_Co=256
+syntax enable
+let g:solarized_termcolors = 256
 set background=dark
+let g:my_background="dark"
+set t_Co=256
+colorscheme solarized
+
+" Base16
+"let base16colorspace=256
 "colorscheme base16-default
 
 " leader key
@@ -268,3 +272,16 @@ set guioptions-=L
 " http://stackoverflow.com/questions/4016649/vim-word-completion-navigating-with-j-and-k
 inoremap <expr> j pumvisible() ? "\<C-N>" : "j"
 inoremap <expr> k pumvisible() ? "\<C-P>" : "k"
+
+" Function to toggle between light and dark background"{{{
+function! ToggleBG()
+    if g:my_background=="light"
+        let g:my_background="dark"
+        set background=dark
+    else
+        let g:my_background="light"
+        set background=light
+    endif
+endfunc
+map <leader>cc <Esc>:call ToggleBG()<cr>
+""}}}
