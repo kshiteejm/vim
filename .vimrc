@@ -39,10 +39,11 @@ filetype plugin indent on
 
 " Solarized
 syntax on
-let g:solarized_termcolors = 256
-set t_Co=256
+"let base16colorspace=256
+"let g:solarized_termcolors = 256
+"set t_Co=256
 set background=dark
-colorscheme solarized
+"colorscheme base16-default
 
 " leader key
 let mapleader = ','
