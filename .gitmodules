@@ -41,3 +41,6 @@
 [submodule "bundle/rainbow_paretheses"]
 	path = bundle/rainbow_paretheses
 	url = https://github.com/kien/rainbow_parentheses.vim.git
+[submodule "bundle/base16-vim"]
+	path = bundle/base16-vim
+	url = https://github.com/chriskempson/base16-vim.git
